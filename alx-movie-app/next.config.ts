@@ -1,8 +1,16 @@
-import type { NextConfig } from "next";
+import withPAWInit from "@ducanh2912/next-pwa";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const withPaw = withPAWInit({
+  dest: 'public'
+});
+
+const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ['m.media-amazon.com'],
+  },
 };
 
-export default nextConfig;
+export default withPaw({
+  ...nextConfig
+});
